@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Página con PDFs</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Barra lateral */
+        .sidebar {
+            width: 200px;
+            background-color: #002E63;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 20px;
+        }
+
+        .sidebar h2 {
+            margin-bottom: 20px;
+            font-size: 1.2em;
+        }
+
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            margin: 10px 0;
+            cursor: pointer;
+        }
+
+        .sidebar a:hover {
+            text-decoration: underline;
+        }
+
+        /* Contenido */
+        .content {
+            flex: 1;
+            padding: 20px;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .header img {
+            width: 120px;
+            height: auto;
+            border-radius: 50%;
+        }
+
+        .header h1 {
+            margin: 10px 0 5px;
+            color: #002E63;
+        }
+
+        .header p {
+            margin: 0;
+            color: #555;
+        }
+
+        /* PDF Viewer */
+        #pdf-viewer {
+            width: 100%;
+            height: 80vh;
+            border: 1px solid #ccc;
+            background: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Barra lateral -->
+    <div class="sidebar">
+        <h2>📂 Documentos</h2>
+        <a onclick="loadPDF('docs/pdf1.pdf')">📄 PDF 1</a>
+        <a onclick="loadPDF('docs/pdf2.pdf')">📄 PDF 2</a>
+    </div>
+
+    <!-- Contenido principal -->
+    <div class="content">
+        <div class="header">
+            <img src="logo.png" alt="Logo">
+            <h1>Mi Nombre</h1>
+            <p>Esta es la descripción de mi página</p>
+        </div>
+        <embed id="pdf-viewer" src="" type="application/pdf">
+    </div>
+
+    <script>
+        function loadPDF(file) {
+            document.getElementById('pdf-viewer').src = file;
+        }
+    </script>
+</body>
+</html>
